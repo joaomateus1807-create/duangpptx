@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Template Oficial - Duang With You</title>
+    <title>Apresentação Refinada</title>
     <style>
-        /* RESET E AJUSTES DE TELA */
         * {
             box-sizing: border-box;
             margin: 0;
@@ -37,8 +36,8 @@
             background-size: cover;
             background-position: center;
             display: flex;
+            justify-content: center;
             align-items: center;
-            padding: 5%;
         }
 
         .slide.active {
@@ -47,36 +46,31 @@
             z-index: 1;
         }
 
-        /* ----------------------------------------------------------------
-           MOLDURA DE CONTEÚDO (O Bloco de Notas Central da Abertura)
-           ---------------------------------------------------------------- */
-        .content-card {
-            position: relative;
-            background: #ffffff;
-            padding: 40px;
-            width: 500px;
-            min-height: 280px;
-            box-shadow: 5px 5px 15px rgba(0,0,0,0.15);
-            border-radius: 4px;
-            z-index: 10;
-            /* Estilo folha de caderno arrancada */
-            border-top: 15px solid transparent;
-            background-image: linear-gradient(white, white), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="30" height="10"><circle cx="15" cy="5" r="4" fill="%23333"/></svg>');
-            background-size: auto, 30px 15px;
-            background-repeat: no-repeat, repeat-x;
-            background-position: top, top;
+        /* AJUSTADO EXATAMENTE PARA O SEU ARQUIVO .PNG */
+        #slide1 {
+            background-image: url('Captura de tela 2026-06-07 201238_cleanup.png');
         }
 
-        /* Variação de rotação para parecer colagem manual */
-        .card-rot-left { transform: rotate(-3deg); margin-left: 10%; }
-        .card-rot-right { transform: rotate(4deg); margin-left: 55%; }
+        /* CARD CENTRALIZADO QUE COBRE O BORRÃO COM ESTILO DE SCRAPBOOK */
+        .center-card {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 40px;
+            width: 550px;
+            min-height: 250px;
+            box-shadow: 6px 6px 0px rgba(0,0,0,0.1);
+            border-radius: 4px;
+            transform: rotate(-1deg);
+            z-index: 10;
+            border: 1px dashed #7ea3a6;
+            text-align: center;
+        }
 
         h1 {
             font-family: 'Arial', sans-serif;
-            font-size: 2.2rem;
-            color: #0b5b66;
-            margin-bottom: 15px;
+            font-size: 2.5rem;
+            color: #1a4a54;
             font-weight: bold;
+            margin-bottom: 15px;
         }
 
         p {
@@ -86,38 +80,7 @@
             line-height: 1.5;
         }
 
-        /* ----------------------------------------------------------------
-           CONFIGURAÇÃO DOS SLIDES BASEADO NAS SUAS IMAGENS
-           ---------------------------------------------------------------- */
-        
-        /* Slide 1 - Capa (image_228bfc.jpg) */
-        #slide1 {
-            background-image: url('image_228bfc.jpg');
-        }
-
-        /* Slide 2 - Estilo Duang / Azul com Halftone (image_228b7c.jpg) */
-        #slide2 {
-            background-image: url('image_228b7c.jpg');
-        }
-
-        /* Slide 3 - Estilo Qin / Fundo Jornal Escuro (image_228c5a.jpg) */
-        #slide3 {
-            background-image: url('image_228c5a.jpg');
-        }
-
-        /* Slide 4 - Estilo Recepção / Grid Azul (image_228c38.jpg) */
-        #slide4 {
-            background-image: url('image_228c38.jpg');
-        }
-
-        /* Slide 5 - Encerramento / Coração (image_228c2c.jpg ou similar) */
-        #slide5 {
-            background-image: url('image_228cba.jpg');
-        }
-
-        /* ----------------------------------------------------------------
-           NAVEGAÇÃO INTERATIVA NO CANTO INFERIOR DIREITO
-           ---------------------------------------------------------------- */
+        /* NAVEGAÇÃO INTERATIVA */
         .navigation-controls {
             position: absolute;
             bottom: 30px;
@@ -130,15 +93,6 @@
             padding: 8px 15px;
             border: 2px solid #222;
             box-shadow: 4px 4px 0px #222;
-            border-radius: 2px;
-        }
-
-        .page-indicator {
-            font-family: 'Arial', sans-serif;
-            font-size: 0.9rem;
-            font-weight: bold;
-            color: #222;
-            margin-right: 10px;
         }
 
         .nav-btn {
@@ -152,15 +106,6 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            transition: background 0.2s;
-        }
-
-        .nav-btn:hover {
-            background: #f0e6df;
-        }
-
-        .nav-btn:active {
-            transform: translate(1px, 1px);
         }
     </style>
 </head>
@@ -168,50 +113,17 @@
 
     <div class="presentation-container">
 
-        <!-- SLIDE 1: CAPA ORIGINAL -->
+        <!-- SLIDE 1 USANDO SUA IMAGEM EM PNG -->
         <div class="slide active" id="slide1">
-            <!-- Na capa mantemos limpo ou com um card transparente se quiser adicionar texto próprio -->
-            <div class="content-card card-rot-left" style="background: rgba(255,255,255,0.85);">
-                <h1>Título do Seu Slide</h1>
-                <p>Template idêntico à identidade visual da abertura. Edite os textos aqui dentro das tags para personalizar.</p>
+            <div class="center-card">
+                <h1>SEU TÍTULO AQUI</h1>
+                <p>O texto inserido neste bloco flutua exatamente sobre a região central, cobrindo as imperfeições e finalizando o design do template.</p>
             </div>
         </div>
 
-        <!-- SLIDE 2: ESTILO DUANG (AZUL COM PAPEL RASGADO) -->
-        <div class="slide" id="slide2">
-            <div class="content-card card-rot-right">
-                <h1>Tópico 01</h1>
-                <p>Aqui seu texto fica posicionado por cima do fundo original texturizado, cobrindo o bloco de escrita antigo com o seu conteúdo novo.</p>
-            </div>
-        </div>
-
-        <!-- SLIDE 3: ESTILO QIN (JORNAL ESCURO E GUITARRA) -->
-        <div class="slide" id="slide3">
-            <div class="content-card card-rot-left" style="border-top-color: #34495e;">
-                <h1>Tópico 02</h1>
-                <p>Inserção de dados, gráficos ou notas sobre a apresentação. O design escuro de fundo se mantém intacto nas laterais.</p>
-            </div>
-        </div>
-
-        <!-- SLIDE 4: ESTILO MURAL / RECEPÇÃO -->
-        <div class="slide" id="slide4">
-            <div class="content-card card-rot-right">
-                <h1>Desenvolvimento</h1>
-                <p>Adicione mais detalhes ou a continuação da sua linha de raciocínio neste bloco.</p>
-            </div>
-        </div>
-
-        <!-- SLIDE 5: ENCERRAMENTO (CORAÇÃO / AUTOR) -->
-        <div class="slide" id="slide5">
-            <div class="content-card card-rot-left">
-                <h1>Conclusão</h1>
-                <p>Muito obrigado pela atenção!<br><br>Espaço para perguntas e considerações finais.</p>
-            </div>
-        </div>
-
-        <!-- CONTROLES COM AS SETINHAS (INFERIOR DIREITO) -->
+        <!-- CONTROLES -->
         <div class="navigation-controls">
-            <span class="page-indicator" id="pageIndicator">1 / 5</span>
+            <span style="font-family: Arial, sans-serif; font-weight: bold; margin-right: 10px;">1 / 1</span>
             <button class="nav-btn" id="prevBtn">&#10094;</button>
             <button class="nav-btn" id="nextBtn">&#10095;</button>
         </div>
@@ -219,11 +131,9 @@
     </div>
 
     <script>
-        // SISTEMA DE INTERAÇÃO VIA JS
         const slides = document.querySelectorAll('.slide');
         const prevBtn = document.getElementById('prevBtn');
         const nextBtn = document.getElementById('nextBtn');
-        const pageIndicator = document.getElementById('pageIndicator');
         
         let currentSlideIndex = 0;
         const totalSlides = slides.length;
@@ -231,31 +141,16 @@
         function updateSlides() {
             slides.forEach(slide => slide.classList.remove('active'));
             slides[currentSlideIndex].classList.add('active');
-            pageIndicator.textContent = `${currentSlideIndex + 1} / ${totalSlides}`;
         }
 
         nextBtn.addEventListener('click', () => {
-            if (currentSlideIndex < totalSlides - 1) {
-                currentSlideIndex++;
-            } else {
-                currentSlideIndex = 0; 
-            }
+            currentSlideIndex = (currentSlideIndex < totalSlides - 1) ? currentSlideIndex + 1 : 0;
             updateSlides();
         });
 
         prevBtn.addEventListener('click', () => {
-            if (currentSlideIndex > 0) {
-                currentSlideIndex--;
-            } else {
-                currentSlideIndex = totalSlides - 1; 
-            }
+            currentSlideIndex = (currentSlideIndex > 0) ? currentSlideIndex - 1 : totalSlides - 1;
             updateSlides();
-        });
-
-        // Controle por setas físicas do teclado
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'ArrowRight' || e.key === ' ') nextBtn.click();
-            if (e.key === 'ArrowLeft') prevBtn.click();
         });
     </script>
 </body>
