@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apresentação Temática - Estilo Abertura</title>
+    <style>
+        /* RESET E CONFIGURAÇÕES GERAIS */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body, html {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background-color: #0b0f19;
+            color: #ffffff;
+        }
+
+        /* CONTAINER DOS SLIDES */
+        .presentation-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.8s ease-in-out, visibility 0.8s;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40px;
+        }
+
+        /* CLASSE QUE ATIVA O SLIDE ATUAL */
+        .slide.active {
+            opacity: 1;
+            visibility: visible;
+            z-index: 1;
+        }
+
+        /* PALETA DE CORES DA ABERTURA (QUENTES DO DUANG / FRIOS DE JAZZ DO QIN) */
+        #slide1 {
+            background: linear-gradient(135deg, #f7a088 0%, #f9c2a6 50%, #6c8cb8 100%);
+        }
+
+        #slide2 {
+            background: linear-gradient(45deg, #16263b 0%, #2c4a6f 100%);
+        }
+
+        #slide3 {
+            background: linear-gradient(180deg, #f9c2a6 0%, #e27d60 100%);
+        }
+
+        #slide4 {
+            background: linear-gradient(135deg, #2c4a6f 0%, #f7a088 100%);
+        }
+
+        /* CAIXA DE CONTEÚDO COM ANIMAÇÃO SUAVE DE ENTRADA (UP) */
+        .slide-content {
+            max-width: 900px;
+            text-align: center;
+            transform: translateY(30px);
+            transition: transform 0.8s ease-out;
+            background: rgba(255, 255, 255, 0.07);
+            padding: 50px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+
+        .slide.active .slide-content {
+            transform: translateY(0);
+        }
+
+        /* ESTILIZAÇÃO DOS TEXTOS REPLICANDO O DESIGN GRÁFICO DA SÉRIE */
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            font-weight: 800;
+            letter-spacing: -1px;
+            text-transform: uppercase;
+            text-shadow: 2px 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Ajuste de contraste dependendo do fundo do slide */
+        #slide1 h1, #slide3 h1 { color: #1e3554; }
+        #slide2 h1, #slide4 h1 { color: #f9c2a6; }
+
+        p {
+            font-size: 1.3rem;
+            line-height: 1.6;
+            font-weight: 300;
+        }
+
+        #slide1 p, #slide3 p { color: #2c4a6f; }
+        #slide2 p, #slide4 p { color: #e2e8f0; }
+
+        /* DETALHES DE DESIGN FLUTUANTES NO FUNDO */
+        .decor {
+            position: absolute;
+            border-radius: 50%;
+            pointer-events: none;
+        }
+        .decor-1 { width: 120px; height: 120px; top: 10%; left: 10%; background: rgba(247, 160, 136, 0.4); filter: blur(10px); }
+        .decor-2 { width: 250px; height: 250px; bottom: -5%; right: 5%; background: rgba(108, 140, 184, 0.3); filter: blur(20px); }
+
+        /* NAVEGAÇÃO: SETAS NO CANTO INFERIOR DIREITO */
+        .navigation-controls {
+            position: absolute;
+            bottom: 40px;
+            right: 40px;
+            z-index: 10;
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .nav-btn {
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            user-select: none;
+        }
+
+        .nav-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: scale(1.05);
+        }
+
+        .nav-btn:active {
+            transform: scale(0.95);
+        }
+
+        .page-indicator {
+            font-size: 1rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            color: rgba(255, 255, 255, 0.7);
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="presentation-container">
+        
+        <div class="decor decor-1"></div>
+        <div class="decor decor-2"></div>
+
+        <div class="slide active" id="slide1">
+            <div class="slide-content">
+                <h1>Título Principal</h1>
+                <p>Insira a introdução da sua apresentação aqui. O fundo mistura as cores quentes de pêssego com o azul transicionado.</p>
+            </div>
+        </div>
+
+        <div class="slide" id="slide2">
+            <div class="slide-content">
+                <h1>Segundo Tópico</h1>
+                <p>Aqui entra o desenvolvimento. O visual muda para um tom mais focado na estética "Noite/Jazz", ideal para pontos mais sérios ou profundos.</p>
+            </div>
+        </div>
+
+        <div class="slide" id="slide3">
+            <div class="slide-content">
+                <h1>Análise Avançada</h1>
+                <p>Coloque mais dados ou conceitos. O contraste inverte novamente para tons solares e artísticos.</p>
+            </div>
+        </div>
+
+        <div class="slide" id="slide4">
+            <div class="slide-content">
+                <h1>Conclusão</h1>
+                <p>Espaço para fechamento, agradecimentos ou abertura para perguntas do público.</p>
+            </div>
+        </div>
+
+        <div class="navigation-controls">
+            <span class="page-indicator" id="pageIndicator">1 / 4</span>
+            <button class="nav-btn" id="prevBtn">&#10094;</button>
+            <button class="nav-btn" id="nextBtn">&#10095;</button>
+        </div>
+
+    </div>
+
+    <script>
+        // LÓGICA DE JAVASCRIPT PARA ALTERNAR OS SLIDES COM ANIMAÇÃO FADE
+        const slides = document.querySelectorAll('.slide');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const pageIndicator = document.getElementById('pageIndicator');
+        
+        let currentSlideIndex = 0;
+        const totalSlides = slides.length;
+
+        function updateSlides() {
+            // Remove atividade de todos
+            slides.forEach(slide => slide.classList.remove('active'));
+            
+            // Ativa o slide correspondente ao índice atual
+            slides[currentSlideIndex].classList.add('active');
+            
+            // Atualiza o contador de páginas no canto inferior
+            pageIndicator.textContent = `${currentSlideIndex + 1} / ${totalSlides}`;
+        }
+
+        // Evento do botão de Avançar
+        nextBtn.addEventListener('click', () => {
+            if (currentSlideIndex < totalSlides - 1) {
+                currentSlideIndex++;
+            } else {
+                currentSlideIndex = 0; // Se quiser que ele volte ao início quando acabar
+            }
+            updateSlides();
+        });
+
+        // Evento do botão de Voltar
+        prevBtn.addEventListener('click', () => {
+            if (currentSlideIndex > 0) {
+                currentSlideIndex--;
+            } else {
+                currentSlideIndex = totalSlides - 1; // Vai para o final caso volte no slide 1
+            }
+            updateSlides();
+        });
+
+        // Adicionado suporte para passar slides com as setas do teclado físico (Direita/Esquerda ou Barra de Espaço)
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === ' ') {
+                nextBtn.click();
+            } else if (e.key === 'ArrowLeft') {
+                prevBtn.click();
+            }
+        });
+    </script>
+</body>
+</html>
