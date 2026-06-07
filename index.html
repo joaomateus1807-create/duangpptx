@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Apresentação Duang With You - 6 Páginas</title>
+    <title>Apresentação Duang With You - Efeito Bola de Papel</title>
     <style>
         * {
             box-sizing: border-box;
@@ -15,8 +15,8 @@
             width: 100%;
             height: 100%;
             overflow: hidden;
-            background-color: #1a1a1a;
-            perspective: 1200px; /* Necessário para o efeito 3D de amassar/desdobrar */
+            background-color: #111;
+            perspective: 1500px;
         }
 
         .presentation-container {
@@ -42,53 +42,74 @@
         }
 
         /* ----------------------------------------------------------------
-           ANIMAÇÕES DE JORNAL AMASSANDO E ABRINDO (CRUMPLE EFFECT)
+           ANIMAÇÃO LITERAL DE VIRAR BOLA DE PAPEL E DESAMASSAR
            ---------------------------------------------------------------- */
         
-        /* Slide saindo: amassa e some */
+        /* Slide saindo: amassa virando uma bolinha compacta e some */
         .slide.exit-crumple {
-            animation: crumpleOut 0.8s forwards ease-in-out;
+            animation: ballCrumpleOut 0.8s forwards ease-in;
             visibility: visible;
             z-index: 2;
         }
 
-        /* Slide entrando: desamassa e aparece */
+        /* Slide entrando: surge como uma bolinha e abre rasgando/esticando na tela */
         .slide.active {
-            animation: unfoldIn 0.8s forwards ease-in-out;
+            animation: ballUnfoldIn 0.9s forwards ease-out;
             opacity: 1;
             visibility: visible;
             z-index: 1;
         }
 
-        @keyframes crumpleOut {
+        @keyframes ballCrumpleOut {
             0% {
                 opacity: 1;
-                transform: scale(1) rotate(0deg) rotateY(0deg);
-                filter: blur(0px) contrast(100%);
+                transform: scale(1) rotate(0deg);
+                filter: contrast(100%) brightness(100%);
+                border-radius: 0%;
             }
-            50% {
-                filter: contrast(200%) brightness(80%); /* Simula sombras dos vincos */
+            30% {
+                /* Começa a amassar os cantos e distorcer */
+                transform: scale(0.8) rotateX(20deg) skewX(-10deg);
+                filter: contrast(150%) brightness(80%);
+            }
+            70% {
+                /* Vira uma massa compacta e escura (sombras dos vincos) */
+                border-radius: 50%;
+                transform: scale(0.3) rotate(45deg) rotateY(90deg);
+                filter: contrast(300%) brightness(40%);
             }
             100% {
                 opacity: 0;
-                transform: scale(0.4) rotate(-15deg) rotateY(45deg);
-                filter: blur(5px) contrast(300%) saturate(0%);
+                transform: scale(0) rotate(180deg);
+                border-radius: 50%;
             }
         }
 
-        @keyframes unfoldIn {
+        @keyframes ballUnfoldIn {
             0% {
                 opacity: 0;
-                transform: scale(1.5) rotate(15deg) rotateY(-45deg);
-                filter: blur(8px) contrast(200%);
+                transform: scale(0) rotate(-180deg);
+                border-radius: 50%;
+                filter: contrast(300%) brightness(50%);
             }
-            60% {
-                filter: contrast(120%);
+            40% {
+                opacity: 1;
+                /* Expande ainda meio amassada e torta */
+                transform: scale(0.5) rotate(-45deg) skewY(15deg);
+                border-radius: 30%;
+                filter: contrast(180%) brightness(80%);
+            }
+            80% {
+                /* Quase aberta, dando o último estalo de impacto */
+                transform: scale(1.05) rotate(2deg);
+                border-radius: 5%;
+                filter: contrast(110%);
             }
             100% {
                 opacity: 1;
-                transform: scale(1) rotate(0deg) rotateY(0deg);
-                filter: blur(0px) contrast(100%);
+                transform: scale(1) rotate(0deg);
+                border-radius: 0%;
+                filter: contrast(100%) brightness(100%);
             }
         }
 
@@ -105,10 +126,8 @@
             z-index: 10;
             border: 1px dashed #7ea3a6;
             text-align: center;
-            transition: transform 0.5s;
         }
 
-        /* Variações de rotação para dinâmica de colagem */
         .rot-left { transform: rotate(-1.5deg); }
         .rot-right { transform: rotate(2deg); }
 
@@ -128,9 +147,7 @@
             line-height: 1.6;
         }
 
-        /* ----------------------------------------------------------------
-           LINKS DAS IMAGENS DAS 6 PÁGINAS
-           ---------------------------------------------------------------- */
+        /* CONFIGURAÇÃO DOS FUNDOS */
         #slide1 { background-image: url('Captura de tela 2026-06-07 201238_cleanup.png'); }
         #slide2 { background-image: url('slide2.png'); } 
         #slide3 { background-image: url('slide3.png'); }
@@ -138,11 +155,7 @@
         #slide5 { background-image: url('slide5.png'); }
         #slide6 { background-image: url('slide6.png'); }
 
-        /* Substitua 'slide2.png', etc., pelos nomes dos seus arquivos tratados futuramente */
-
-        /* ----------------------------------------------------------------
-           CONTROLES INTERATIVOS (CANTO INFERIOR DIREITO)
-           ---------------------------------------------------------------- */
+        /* CONTROLES INTERATIVOS */
         .navigation-controls {
             position: absolute;
             bottom: 30px;
@@ -177,65 +190,54 @@
             justify-content: center;
             align-items: center;
         }
-        
-        .nav-btn:active {
-            transform: translate(1px, 1px);
-        }
     </style>
 </head>
 <body>
 
     <div class="presentation-container">
 
-        <!-- PAGINA 1 -->
         <div class="slide active" id="slide1">
             <div class="center-card rot-left">
                 <h1>Página 1: Introdução</h1>
-                <p>Insira seu texto introdutório aqui. A transição vai rodar o efeito de papel amassando e abrindo a folha seguinte.</p>
+                <p>Veja agora o efeito ao mudar de slide. A página vai encolher se transformando em uma bolinha amassada.</p>
             </div>
         </div>
 
-        <!-- PAGINA 2 -->
         <div class="slide" id="slide2">
             <div class="center-card rot-right">
                 <h1>Página 2: Contexto</h1>
-                <p>Substitua este parágrafo com as suas notas de apresentação. Lembre-se de subir a imagem 'slide2.png' no GitHub.</p>
+                <p>E a próxima surge do zero desamassando e esticando até preencher a tela inteira.</p>
             </div>
         </div>
 
-        <!-- PAGINA 3 -->
         <div class="slide" id="slide3">
             <div class="center-card rot-left">
                 <h1>Página 3: Desenvolvimento</h1>
-                <p>Escreva aqui o conteúdo principal do seu terceiro tópico.</p>
+                <p>Conteúdo da página 3.</p>
             </div>
         </div>
 
-        <!-- PAGINA 4 -->
         <div class="slide" id="slide4">
             <div class="center-card rot-right">
                 <h1>Página 4: Argumentação</h1>
-                <p>Texto detalhado da sua quarta etapa de apresentação.</p>
+                <p>Conteúdo da página 4.</p>
             </div>
         </div>
 
-        <!-- PAGINA 5 -->
         <div class="slide" id="slide5">
             <div class="center-card rot-left">
                 <h1>Página 5: Discussão</h1>
-                <p>Use este espaço para debater ideias ou dados específicos antes de fechar.</p>
+                <p>Conteúdo da página 5.</p>
             </div>
         </div>
 
-        <!-- PAGINA 6 -->
         <div class="slide" id="slide6">
             <div class="center-card rot-right">
                 <h1>Página 6: Conclusão</h1>
-                <p>Suas considerações finais e agradecimentos aqui. Fim da apresentação!</p>
+                <p>Fim da apresentação! Todas as 6 páginas configuradas com a transição de papel.</p>
             </div>
         </div>
 
-        <!-- CONTROLES -->
         <div class="navigation-controls">
             <span class="page-indicator" id="pageIndicator">1 / 6</span>
             <button class="nav-btn" id="prevBtn">&#10094;</button>
@@ -261,22 +263,18 @@
             const currentSlide = slides[currentSlideIndex];
             const nextSlide = slides[nextIndex];
 
-            // Aplica animação de saída no slide atual
             currentSlide.classList.remove('active');
             currentSlide.classList.add('exit-crumple');
 
-            // Prepara o próximo slide para entrar
             nextSlide.classList.add('active');
 
-            // Atualiza o índice global
             currentSlideIndex = nextIndex;
             pageIndicator.textContent = `${currentSlideIndex + 1} / ${totalSlides}`;
 
-            // Limpa as classes de animação após o término do efeito (800ms)
             setTimeout(() => {
                 currentSlide.classList.remove('exit-crumple');
                 isAnimating = false;
-            }, 800);
+            }, 900); // Tempo sincronizado com a animação do CSS
         }
 
         nextBtn.addEventListener('click', () => {
@@ -289,7 +287,6 @@
             changeSlide(nextIndex);
         });
 
-        // Atalhos do teclado
         document.addEventListener('keydown', (e) => {
             if (e.key === 'ArrowRight' || e.key === ' ') nextBtn.click();
             if (e.key === 'ArrowLeft') prevBtn.click();
